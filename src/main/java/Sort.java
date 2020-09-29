@@ -1,3 +1,3 @@
 public interface Sort {
-    int[] doSort();
+    int[] sort(int[] array);
 }

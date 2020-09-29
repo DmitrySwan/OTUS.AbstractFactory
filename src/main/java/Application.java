@@ -1,17 +1,12 @@
 public class Application {
 
-    SortAbstractFactory factory;
-    Sort sort;
+    private Sort sort;
 
     Application(SortAbstractFactory factory) {
-        this.factory = factory;
-    }
-
-    int[] doSort() {
-        return sort.doSort();
-    }
-
-    void createSort() {
         this.sort = factory.createSort();
+    }
+
+    int[] sort(int[] array) {
+        return sort.sort(array);
     }
 }
