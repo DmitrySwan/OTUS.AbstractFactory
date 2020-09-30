@@ -1,18 +1,21 @@
+import static java.lang.System.arraycopy;
+import org.apache.log4j.Logger;
+
 import java.util.Arrays;
 
-import static java.lang.System.arraycopy;
-
 public class MergeSort implements Sort {
+
+    private static Logger log = Logger.getLogger(MergeSort.class);
 
     @Override
     public int[] sort(int[] array) {
         if (array.length == 1) return array;
         int[] sortedFirst = sort(Arrays.copyOfRange(array, 0, array.length / 2));
         int[] sortedSecond = sort(Arrays.copyOfRange(array, array.length / 2, array.length));
-        return doSort(sortedFirst, sortedSecond);
+        return mergeSort2Arrays(sortedFirst, sortedSecond);
     }
 
-    private int[] doSort(int[] firstArray, int[] secondArray) {
+    private int[] mergeSort2Arrays(int[] firstArray, int[] secondArray) {
         int[] resultArray = new int[firstArray.length + secondArray.length];
 
         int i = 0, j = 0, k = 0;

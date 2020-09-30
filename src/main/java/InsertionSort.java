@@ -1,6 +1,5 @@
-import java.util.Arrays;
-
 public class InsertionSort implements Sort {
+
 
     @Override
     public int[] sort(int[] array) {

@@ -19,17 +19,21 @@
 1. mvn clean test -DsuiteXmlFile=testng.xml 
     или
 2. mvn clean test
+3. mvn clean install (если необходимо собрать исполняемый jar файл AbstractFactory-1.0-jar-with-dependencies.jar, после сборки лежит в target)
 
 ### Описание тестирования:
-Тест расположен в директории src/test/java
-Запускается с тремя различными наборами данных (размерность матрицы, количество потоков)
+###### 1 Способ. Уже собранный jar-файл (AbstractFactory-1.0-jar-with-dependencies.jar) расположен в корне проекта.
+Пример запуска через cmd:  java -jar AbstractFactory-1.0-jar-with-dependencies.jar -i inputFile.txt -o outputFile.txt -s merge
+типы сортировки: insertion, merge, selection
+
+###### 2 Способ.Тест расположен в директории src/test/java.
+input и expected output файлы лежат в src/test/resources.
+В процессе запуска тестирования они программно копируются в папку target/test-classes/,
+где в результате тестов(по одному тесту на каждый тип сортировки) генерится свой файл output, который сравнивается с expected output
 
 ### Логирование: 
-файл matrixMultiplyLogFile.log созданиется в директории target
-1. Генерация двух матриц.
-2. Вычисление умножения матриц без потоков.
-3. Вычисление умножения матриц с потоками.
-4. Сравнение результатов в тесте.
+Файл report.log созданиется в директории проекта/jar файла.
+Содержит информацию о входном массиве, способе сортировке и выходном массиве.
 
 ##### Диаграмма классов:
 Файл diagram.png находится в корне проекта (сгенерирован ресурсами Intelij IDEA)
@@ -46,3 +50,7 @@ Apache Maven 3.3.9
 log4j:https://mvnrepository.com/artifact/log4j/log4j/1.2.17
 
 testng:https://mvnrepository.com/artifact/org.testng/testng/7.3.0
+
+commons-cli:https://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1
+
+commons-io:https://mvnrepository.com/artifact/commons-io/commons-io/2.8.0
