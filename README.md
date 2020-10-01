@@ -24,7 +24,8 @@
 ### Описание тестирования:
 ###### 1 Способ. Уже собранный jar-файл (AbstractFactory-1.0-jar-with-dependencies.jar) расположен в корне проекта.
 Пример запуска через cmd:  java -jar AbstractFactory-1.0-jar-with-dependencies.jar -i inputFile.txt -o outputFile.txt -s merge
-типы сортировки: insertion, merge, selection
+Типы сортировки: insertion, merge, selection
+Пример формата заполнения файла input можно посмотреть в src/test/resources
 
 ###### 2 Способ.Тест расположен в директории src/test/java.
 input и expected output файлы лежат в src/test/resources.
