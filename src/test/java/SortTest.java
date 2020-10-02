@@ -1,4 +1,4 @@
-import static org.apache.commons.io.FileUtils.contentEquals;
+import static org.apache.commons.io.FileUtils.contentEqualsIgnoreEOL;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -27,9 +27,10 @@ public class SortTest {
                         "-o", targetOutputFilePath,
                         "-s", sortType
                 });
-         Assert.assertTrue(contentEquals(
+         Assert.assertTrue(contentEqualsIgnoreEOL(
                  new File(targetOutputFilePath),
-                 new File(TARGET_TEST_RESOURCES_PATH + outputFileExpectedPath)
+                 new File(TARGET_TEST_RESOURCES_PATH + outputFileExpectedPath),
+                 "UTF-8"
          ));
     }
 }
